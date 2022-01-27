@@ -1,5 +1,5 @@
 {
-  "name": "Aluracord - Matrix (peas)",
+  "name": "Aluracord - (tuliopxavier)",
   "theme": {
     "colors": {
       "primary": {
@@ -27,6 +27,9 @@
         "800": "#181F25",
         "900": "#101418",
         "999": "#080A0C"
+      },
+      "gradient":{
+        "linear": "linear-gradient(45deg, #ff5a98, #7638f4, #11a3d2, #ff5a98, #7638f4, #11a3d2)"
       }
     }
   },

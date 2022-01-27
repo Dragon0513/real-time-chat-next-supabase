@@ -1,5 +1,5 @@
 import { Box, Button, Text, TextField, Image } from '@skynexui/components';
-import React from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
 import appConfig from '../config.json';
 
@@ -17,34 +17,24 @@ function Titulo(props) {
             `}</style>
     </>
   );
-}
-
-// Componente React
-// function HomePage() {
-//     // JSX
-//     return (
-//         <div>
-//             <GlobalStyle />
-//             <Titulo tag="h2">Boas vindas de volta!</Titulo>
-//             <h2>Discord - Alura Matrix</h2>
-//         </div>
-//     )
-// }
-// export default HomePage
+};
 
 export default function PaginaInicial() {
-  // const username = 'omariosouto';
-  const [username, setUsername] = React.useState('omariosouto');
+  const [username, setUsername] = useState('tuliopxavier');
   const roteamento = useRouter();
+
+  function handleChange(e){
+    setUsername(e.target.value.trim());
+  };
 
   return (
     <>
       <Box
         styleSheet={{
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          backgroundColor: appConfig.theme.colors.primary[500],
-          backgroundImage: 'url(https://virtualbackgrounds.site/wp-content/uploads/2020/08/the-matrix-digital-rain.jpg)',
-          backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundBlendMode: 'multiply',
+          background: appConfig.theme.colors.gradient['linear'],
+          backgroundSize: '400% 400%',
+          animation: 'gradient 30s ease infinite'
         }}
       >
         <Box
@@ -59,7 +49,7 @@ export default function PaginaInicial() {
             width: '100%', maxWidth: '700px',
             borderRadius: '5px', padding: '32px', margin: '16px',
             boxShadow: '0 2px 10px 0 rgb(0 0 0 / 20%)',
-            backgroundColor: appConfig.theme.colors.neutrals[700],
+            backgroundColor: appConfig.theme.colors.neutrals[700]
           }}
         >
           {/* Formulário */}
@@ -67,9 +57,7 @@ export default function PaginaInicial() {
             as="form"
             onSubmit={function (infosDoEvento) {
               infosDoEvento.preventDefault();
-              console.log('Alguém submeteu o form');
               roteamento.push('/chat');
-              // window.location.href = '/chat';
             }}
             styleSheet={{
               display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
@@ -81,28 +69,10 @@ export default function PaginaInicial() {
               {appConfig.name}
             </Text>
 
-            {/* <input
-                            type="text"
-                            value={username}
-                            onChange={function (event) {
-                                console.log('usuario digitou', event.target.value);
-                                // Onde ta o valor?
-                                const valor = event.target.value;
-                                // Trocar o valor da variavel
-                                // através do React e avise quem precisa
-                                setUsername(valor);
-                            }}
-                        /> */}
             <TextField
               value={username}
-              onChange={function (event) {
-                console.log('usuario digitou', event.target.value);
-                // Onde ta o valor?
-                const valor = event.target.value;
-                // Trocar o valor da variavel
-                // através do React e avise quem precisa
-                setUsername(valor);
-              }}
+              onChange={e => handleChange(e)}
+              minLength="3"
               fullWidth
               textFieldColors={{
                 neutral: {
@@ -149,7 +119,7 @@ export default function PaginaInicial() {
                 borderRadius: '50%',
                 marginBottom: '16px',
               }}
-              src={`https://github.com/${username}.png`}
+              src={`${username}`.length > 2 ? `https://github.com/${username}.png` : null}
             />
             <Text
               variant="body4"
@@ -160,7 +130,7 @@ export default function PaginaInicial() {
                 borderRadius: '1000px'
               }}
             >
-              {username}
+              {`${username}`.length > 2 ? `${username}` : null}
             </Text>
           </Box>
           {/* Photo Area */}

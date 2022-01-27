@@ -23,12 +23,23 @@ function GlobalStyle() {
       flex: 1;
     }
     /* ./App fit Height */ 
+
+    @keyframes gradient {
+      0% {
+        background-position: 0% 0%;
+      }
+      50% {
+        background-position: 100% 100%;
+      }
+      100% {
+        background-position: 0% 0%;
+      }
+    }
   `}</style>
   );
 }
 
 export default function CustomApp({ Component, pageProps }) {
-  console.log('Roda em todas as páginas!');
   return (
       <>
           <GlobalStyle />
