@@ -1,3 +1,6 @@
+import { useState, useEffect } from 'react';
+import { AuthContext } from '../providers/auth'
+
 function GlobalStyle() {
   return (
       <style global jsx>{`
@@ -39,11 +42,28 @@ function GlobalStyle() {
   );
 }
 
+
 export default function CustomApp({ Component, pageProps }) {
+  const initialValue = '';
+  const [user, setUser] = useState(() => getLocalStorage('user'));
+  
+  
+  function getLocalStorage(key) {
+    try {
+      const value = window.localStorage.getItem(key);
+      return value ? JSON.parse(value) : initialValue;
+    } catch (e) {
+      // if error, return initial value
+      return initialValue;
+    }
+  }
+ 
   return (
       <>
           <GlobalStyle />
-          <Component {...pageProps} />
+          <AuthContext.Provider value={{user, setUser}}>
+            <Component {...pageProps} />
+          </AuthContext.Provider>
       </>
   );
 }
