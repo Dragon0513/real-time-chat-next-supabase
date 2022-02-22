@@ -1,4 +1,4 @@
-<small>Esse projeto foi iniciado durante a semana de Imersão front-end da @alura, e posteriormente fui implementadando algumas modificações e refatorando.</small>
+Esse projeto foi iniciado durante a semana de Imersão front-end da @alura, e posteriormente fui implementadando algumas modificações e refatorando.
 
 ### Sobre
 Projeto desenvolvido para estudo e prática de desenvolvimento front-end utilizando framework **Next**, biblioteca **React**, CSS-in-JS com **Skynex-UI**, Context API, controlled components, consumindo API construida com **Supabase**. Foi necessario também fazer configuração de variáveis de ambiente.
@@ -9,11 +9,11 @@ Deploy com **continuous deployment** feito na **Vercel**.
 
 
 ### Demo do Projeto
-<a href="https://aluracord-qnor8r5r7-tuliopxavier.vercel.app/" target="_blank">aluracord-qnor8r5r7-tuliopxavier.vercel.app//</a>
+<a href="https://real-time-chat-next-supabase.vercel.app/" target="_blank">real-time-chat-next-supabase.vercel.app/</a>
 
 
 ### Para testar
-- Clone o repositório: ```git clone https://github.com/tuliopxavier/aluracord.git```
+- Clone o repositório: ```git clone https://github.com/tuliopxavier/real-time-chat-next-supabase.git```
 - Instale as dependências: ```yarn install```
 - Acompanhe em modo de desenvolvimento: ```yarn dev```
 
