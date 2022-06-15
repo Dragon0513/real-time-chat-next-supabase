@@ -78,14 +78,14 @@ export default function PaginaInicial() {
               textAlign: 'center',
               marginBottom: '32px',
             }}>
-            <Titulo tag='h2'>Boas vindas de volta!</Titulo>
+            <Titulo tag='h2'>Real time chat</Titulo>
             <Text
               variant='body3'
               styleSheet={{
                 marginBottom: '32px',
                 color: appConfig.theme.colors.neutrals[300],
               }}>
-              {appConfig.name}
+              (insert a Github username and enjoy)
             </Text>
 
             <TextField
